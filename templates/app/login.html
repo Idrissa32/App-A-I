@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<div class="container">
+    <div class="row mt-5 mb-5 shadow">
+        <div class="col-lg-6 shadow p-4">
+            <div class="card-header text-center"><i class="fas fa-user"></i>Connexion au plateforme</div>
+            {% for message in messages %}
+            <strong>{{ message }}</strong>
+            {% endfor %}
+            <form method="post" actions="/login">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Entrez votre nom d'utilisateur" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Entrez votre mot de passe" required>
+                </div>
+                <a href="/register" >Creer votre compte ici......</a>
+                <button type="submit" class="btn btn-primary ml-5">Connecter</button>
+            </form>
+        </div>
+        <div class=" col-lg-6 ">
+            <img src="https://www.mca.gov.in/content/forms/af/mca-forms/login-and-registration/login-screen/_jcr_content/guideContainer/rootPanel/items/panel/items/guideimage.img.png/1646292097673.png" alt="First slide" width="550px" height="430 class="img-reponsive" >
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
